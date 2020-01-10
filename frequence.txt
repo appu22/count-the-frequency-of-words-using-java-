@@ -1,0 +1,51 @@
+package freq;
+import java.util.*;
+public class freq
+{
+    public static void main(String[] args) 
+    {
+        Scanner scan = new Scanner(System.in);
+        String[] rWords;
+        ArrayList<String> nWords = new ArrayList<String>();
+        ArrayList<Integer> nFreq = new ArrayList<Integer>();
+        System.out.println("Enter the line");
+        String line = scan.nextLine();
+        line = line.trim();
+        line = line.replaceAll(" +", " ");
+        rWords = line.split(" ");
+        
+        for(int i = 0; i < rWords.length; i++){
+            String current = rWords[i];
+            int repeatition = 0;
+            
+            for(int j = 0; j < rWords.length; j++){
+                if(current.equals(rWords[j])){
+                    repeatition++;
+                }
+            }       
+            if(!nWords.contains(current)){
+                nWords.add(current);
+                nFreq.add(repeatition);
+            }
+        }        
+        for(int i = 0; i < nWords.size(); i++){
+            System.out.println(nWords.get(i) + " : Freq =  " + nFreq.get(i));
+        }       
+        System.out.println("Total Characters: " + line.length());
+    }        
+}
+
+
+Output:
+
+run:
+Enter the line
+i love to be what i am
+i : Freq =  2
+love : Freq =  1
+to : Freq =  1
+be : Freq =  1
+what : Freq =  1
+am : Freq =  1
+Total Characters: 22
+BUILD SUCCESSFUL (total time: 38 seconds)
